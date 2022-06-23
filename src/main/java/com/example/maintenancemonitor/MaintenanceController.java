@@ -16,4 +16,14 @@ public class MaintenanceController {
         monitor.setPercent(a);
         return monitor.change(monitor.getPercent());
     }
+
+    @RequestMapping("/status")
+    public String status() {
+        if (monitor.getPercent() < 0) {
+            return "Current status level is either invalid or not set";
+        } else if (monitor.getPercent() >= 99.95) {
+            return monitor.correctMessage(monitor.getPercent());
+        }
+        return monitor.falseMessage(monitor.getPercent());
+    }
 }
