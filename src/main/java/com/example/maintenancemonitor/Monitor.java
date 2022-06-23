@@ -14,4 +14,18 @@ public class Monitor {
     public String change(double a) {
         return "Status level changed to " + a + "%";
     }
+
+    public String correctMessage(double a) {
+        return "Current service level agreement: " + a + "%." + "<br>" +
+                "Status level is ok!";
+    }
+
+    public String falseMessage(double a) {
+        return "Current service level agreement: " + a + "%." + "<br>" +
+                "Status level is not ok as its " + difference(a) + "% too low!";
+    }
+
+    public double difference (double a) {
+        return 99.95 - a;
+    }
 }
