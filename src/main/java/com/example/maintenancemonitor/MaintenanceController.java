@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MaintenanceController {
 
+    private Monitor monitor = new Monitor();
+
     @RequestMapping("/set")
     public String set(
             @RequestParam double a
     ) {
-        double status = a;
-        return "Status set to" + status;
+        monitor.setPercent(a);
+        return monitor.change(monitor.getPercent());
     }
 }
