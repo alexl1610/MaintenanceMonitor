@@ -20,14 +20,12 @@ class MonitorTest {
 
         assertEquals("Status level changed to 86.0%", monitor.change(a));
     }
-
     @Test
     void difference() {
         double a = 50;
 
         assertEquals(49.95, monitor.difference(a));
     }
-
     @Test
     void correctMessageTest() {
         double a = 99.95;
@@ -35,12 +33,18 @@ class MonitorTest {
         assertEquals("Current service level agreement: 99.95%." + "<br>" +
                 "Status level is ok!", monitor.correctMessage(a));
     }
-
     @Test
     void falseMessageTest() {
         double a = 99.94;
 
         assertEquals("Current service level agreement: 99.94%." + "<br>" +
                 "Status level is not ok as its 0.010000000000005116% too low!", monitor.falseMessage(a));
+    }
+    @Test
+    void convertTest() {
+        int a = 24000;
+        int b = 55;
+
+        assertEquals(54.79661339421614, monitor.convert(a,b));
     }
 }
