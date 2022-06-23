@@ -35,4 +35,22 @@ public class MaintenanceController {
         monitor.setPercent(monitor.convert(a,b));
         return monitor.change(monitor.getPercent());
     }
+
+    @RequestMapping("/reset")
+    public String reset() {
+        monitor.setPercent(-1);
+        return "Status level reset";
+    }
+
+    @RequestMapping("/")
+    public String open() {
+        return "Welcome to the Maintenance Monitor!" + "<br>" +
+                "Our Customers expect electricity around the clock " +
+                "with a service level agreement of 99.95%."  + "<br>" + "<br>" +
+                "The following options are available:" + "<br>" +
+                "/set?a=X -> To set the current status to X"  + "<br>" +
+                "/setMin?a=X&b=X -> To set the current status using Xmin and Xsec" + "<br>" +
+                "/status -> To see the current status level"  + "<br>" +
+                "/reset -> To reset the current status level";
+    }
 }
