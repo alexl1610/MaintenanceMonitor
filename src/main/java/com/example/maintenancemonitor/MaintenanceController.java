@@ -26,4 +26,13 @@ public class MaintenanceController {
         }
         return monitor.falseMessage(monitor.getPercent());
     }
+
+    @RequestMapping("/setMin")
+    public String setMin(
+            @RequestParam int a,
+            @RequestParam int b
+    ) {
+        monitor.setPercent(monitor.convert(a,b));
+        return monitor.change(monitor.getPercent());
+    }
 }

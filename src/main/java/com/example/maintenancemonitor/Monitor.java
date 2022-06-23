@@ -10,7 +10,6 @@ public class Monitor {
     public void setPercent(double a) {
         percent = a;
     }
-
     public String change(double a) {
         return "Status level changed to " + a + "%";
     }
@@ -27,5 +26,9 @@ public class Monitor {
 
     public double difference (double a) {
         return 99.95 - a;
+    }
+
+    public double convert (double a, double b) {
+        return ((a * 60 + b) / 60)*100/43800;
     }
 }
